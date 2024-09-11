@@ -1,4 +1,4 @@
-# pohja
+# Reetan HT
 
 Pohja kevään 2024 harjoitustöiden GIT-repoille
 
