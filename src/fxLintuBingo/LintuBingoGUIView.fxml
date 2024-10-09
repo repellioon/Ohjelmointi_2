@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import fi.jyu.mit.fxgui.ComboBoxChooser?>
+<?import fi.jyu.mit.fxgui.ListChooser?>
+<?import fi.jyu.mit.fxgui.StringGrid?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.input.KeyCodeCombination?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fxLintuBingo.LintuBingoGUIController">
+   <top>
+      <MenuBar BorderPane.alignment="CENTER">
+        <menus>
+          <Menu mnemonicParsing="false" text="Asetukset">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Tallenna">
+                     <accelerator>
+                        <KeyCodeCombination alt="UP" code="S" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                     </accelerator></MenuItem>
+                  <MenuItem mnemonicParsing="false" text="Lisää lintu" />
+                  <MenuItem mnemonicParsing="false" text="Avaa..." />
+                  <MenuItem mnemonicParsing="false" text="Tulosta" />
+                  <MenuItem mnemonicParsing="false" text="Lopeta" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Wiki">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Kaikki linnut" />
+                  <MenuItem mnemonicParsing="false" text="Bongatut linnut" />
+                  <MenuItem mnemonicParsing="false" text="Kartta" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Apua">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Apua" />
+                  <MenuItem mnemonicParsing="false" text="Tietoja" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+   </top>
+   <center>
+      <SplitPane dividerPositions="0.2607655502392344, 0.6578947368421053" BorderPane.alignment="CENTER">
+         <items>
+            <BorderPane maxWidth="160.0" minWidth="100.0" prefHeight="200.0" prefWidth="138.0">
+               <center>
+                  <ListChooser prefWidth="160.0" rivit="Töyhtöhyyppä&#10;Sinitiainen&#10;Mustarastas&#10;Merikotka" BorderPane.alignment="CENTER" />
+               </center>
+               <top>
+                  <VBox BorderPane.alignment="CENTER">
+                     <children>
+                        <Label text="Etsi">
+                           <padding>
+                              <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
+                           </padding></Label>
+                        <ComboBoxChooser maxWidth="300.0" prefHeight="26.0" prefWidth="168.0" />
+                        <TextField />
+                        <Label text="Lajit">
+                           <padding>
+                              <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
+                           </padding>
+                        </Label>
+                     </children>
+                  </VBox>
+               </top>
+            </BorderPane>
+            <BorderPane prefWidth="200.0">
+               <top>
+                  <Label text="Bongaustiedot" BorderPane.alignment="CENTER_LEFT">
+                     <padding>
+                        <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
+                     </padding></Label>
+               </top>
+               <center>
+                  <ScrollPane fitToWidth="true" prefWidth="150.0" BorderPane.alignment="CENTER">
+                     <content>
+                        <GridPane hgap="10.0">
+                          <columnConstraints>
+                            <ColumnConstraints fillWidth="false" halignment="LEFT" hgrow="SOMETIMES" maxWidth="71.0" minWidth="10.0" prefWidth="64.0" />
+                            <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <padding>
+                              <Insets left="10.0" right="10.0" top="10.0" />
+                           </padding>
+                           <children>
+                              <Label text="Bongattu" />
+                              <Label text="Paikka" GridPane.rowIndex="1" />
+                              <Label text="Kellonaika" GridPane.rowIndex="2" />
+                              <Label text="Huomiot" GridPane.rowIndex="3" />
+                              <TextField GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" />
+                              <TextField GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              <TextField GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                              <TextField GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                           </children>
+                        </GridPane>
+                     </content>
+                  </ScrollPane>
+               </center>
+            </BorderPane>
+            <BorderPane prefHeight="200.0" prefWidth="200.0">
+               <top>
+                  <Label text="Lajikohtaiset tiedot" BorderPane.alignment="CENTER_LEFT">
+                     <padding>
+                        <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
+                     </padding></Label>
+               </top>
+               <center>
+                  <StringGrid rivit="Ravinto         |Pesimisaika       |Elinympäristö                         |Levinneisyys           &#10;Hyönteiset, madot ja muut pienet selkärangattomat |huhtikuu    |avoimilla niityillä ja pelloilla, kosteat alueet|koko suomi  " BorderPane.alignment="CENTER" />
+               </center>
+               <bottom>
+                  <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER" />
+               </bottom>
+            </BorderPane>
+         </items>
+      </SplitPane>
+   </center>
+   <bottom>
+      <BorderPane prefHeight="0.0" prefWidth="0.0" BorderPane.alignment="CENTER">
+         <left>
+            <HBox spacing="10.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Button mnemonicParsing="false" text="Lisää laji" />
+                  <Button mnemonicParsing="false" text="Tallenna" />
+               </children>
+               <BorderPane.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </BorderPane.margin>
+            </HBox>
+         </left>
+         <center>
+            <HBox spacing="10.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Button mnemonicParsing="false" text="Muokkaa" />
+                  <Button mnemonicParsing="false" text="Poista" />
+               </children>
+               <BorderPane.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </BorderPane.margin>
+            </HBox>
+         </center>
+      </BorderPane>
+   </bottom>
+</BorderPane>
