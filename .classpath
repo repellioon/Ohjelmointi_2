@@ -8,5 +8,6 @@
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.fx.ide.jdt.core.JAVAFX_CONTAINER"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Ohj2"/>
+	<classpathentry kind="lib" path="/Users/reettavirtanen/devel/jar/fxgui.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

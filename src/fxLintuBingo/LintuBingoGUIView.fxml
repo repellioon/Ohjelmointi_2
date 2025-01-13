@@ -28,14 +28,15 @@
         <menus>
           <Menu mnemonicParsing="false" text="Asetukset">
             <items>
-              <MenuItem mnemonicParsing="false" text="Tallenna">
+              <MenuItem mnemonicParsing="false" onAction="#handleTallenna" text="Tallenna">
                      <accelerator>
                         <KeyCodeCombination alt="UP" code="S" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
                      </accelerator></MenuItem>
-                  <MenuItem mnemonicParsing="false" text="Lisää lintu" />
-                  <MenuItem mnemonicParsing="false" text="Avaa..." />
-                  <MenuItem mnemonicParsing="false" text="Tulosta" />
-                  <MenuItem mnemonicParsing="false" text="Lopeta" />
+                  <MenuItem mnemonicParsing="false" onAction="#handleLisaaBongaus" text="Lisää Bongaus" />
+                  <MenuItem mnemonicParsing="false" onAction="#handleMuokkaaBongausta" text="Muokkaa Bongausta" />
+                  <MenuItem mnemonicParsing="false" onAction="#handleMuokkaaLajitietoja" text="Muokkaa lajitietoja" />
+                  <MenuItem mnemonicParsing="false" onAction="#handleTulosta" text="Tulosta" />
+                  <MenuItem mnemonicParsing="false" onAction="#handleLopeta" text="Lopeta" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Wiki">
@@ -69,8 +70,8 @@
                               <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
                            </padding></Label>
                         <ComboBoxChooser maxWidth="300.0" prefHeight="26.0" prefWidth="168.0" />
-                        <TextField />
-                        <Label text="Lajit">
+                        <TextField text="Etsi.." />
+                        <Label text="Linnut">
                            <padding>
                               <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
                            </padding>
@@ -94,7 +95,7 @@
                   </ScrollPane>
                </center>
             </BorderPane>
-            <BorderPane prefHeight="200.0" prefWidth="200.0">
+            <BorderPane prefHeight="426.0" prefWidth="268.0">
                <top>
                   <Label text="Lajikohtaiset tiedot" BorderPane.alignment="CENTER_LEFT">
                      <padding>
@@ -140,8 +141,8 @@
          <left>
             <HBox spacing="10.0" BorderPane.alignment="CENTER">
                <children>
-                  <Button mnemonicParsing="false" text="Lisää laji" />
-                  <Button mnemonicParsing="false" text="Tallenna" />
+                  <Button mnemonicParsing="false" onAction="#handleLisaaBongaus" text="Lisää bongaus" />
+                  <Button mnemonicParsing="false" onAction="#handlePoista" text="Poista" />
                </children>
                <BorderPane.margin>
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
@@ -150,15 +151,18 @@
          </left>
          <center>
             <HBox spacing="10.0" BorderPane.alignment="CENTER">
-               <children>
-                  <Button mnemonicParsing="false" text="Muokkaa" />
-                  <Button mnemonicParsing="false" text="Poista" />
-               </children>
                <BorderPane.margin>
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                </BorderPane.margin>
             </HBox>
          </center>
+         <right>
+            <Button mnemonicParsing="false" onAction="#handleTallenna" text="Tallenna" BorderPane.alignment="CENTER">
+               <BorderPane.margin>
+                  <Insets right="10.0" />
+               </BorderPane.margin>
+            </Button>
+         </right>
       </BorderPane>
    </bottom>
 </BorderPane>

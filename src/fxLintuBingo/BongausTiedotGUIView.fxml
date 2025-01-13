@@ -13,7 +13,8 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" 
+			fx:controller="fi.jyu.mit.fxgui.ModalController">
 	<bottom>
 		<VBox BorderPane.alignment="CENTER">
 		  <children>
@@ -22,7 +23,7 @@
 			<ButtonBar prefHeight="40.0" prefWidth="200.0">
 			  <buttons>
 				<Button defaultButton="true" mnemonicParsing="false" text="OK" />
-				<Button cancelButton="true" mnemonicParsing="false" text="Peruuta" />
+				<Button cancelButton="true" mnemonicParsing="false" onAction="#handleDefaultCancel" text="Peruuta" />
 			  </buttons>
 			  <padding>
 				<Insets right="10.0" />
@@ -40,20 +41,23 @@
 			  <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" />
 			</columnConstraints>
 			<rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
 			  <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
 			  <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
 			  <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
 			  <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
 			</rowConstraints>
 		<children>
-			<Label text="Bongattu" />
-			<Label text="Paikka" GridPane.rowIndex="1" />
-			<Label text="Kellonaika" GridPane.rowIndex="2" />
-			<Label text="Huomiot" GridPane.rowIndex="3" />
-			<TextField text="19.04.2023" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" />
-			<TextField text="Lempäälä" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" />
-			<TextField text="13:45" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" />
-			<TextField text="Teki pesää" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3" />
+			<Label text="Bongattu" GridPane.rowIndex="1" />
+			<Label text="Paikka" GridPane.rowIndex="2" />
+			<Label text="Kellonaika" GridPane.rowIndex="3" />
+			<Label text="Huomiot" GridPane.rowIndex="4" />
+			<TextField text="19.04.2023" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" />
+			<TextField text="Lempäälä" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" />
+			<TextField text="13:45" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3" />
+			<TextField text="Teki pesää" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="4" />
+                  <Label text="Lintu" />
+                  <TextField text="Töyhtöhyyppä" GridPane.columnIndex="1" />
 		</children>
 		<opaqueInsets>
 		  <Insets left="10.0" top="10.0" />
