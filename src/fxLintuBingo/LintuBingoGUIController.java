@@ -2,11 +2,15 @@ package fxLintuBingo;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import fi.jyu.mit.fxgui.ComboBoxChooser;
 import fi.jyu.mit.fxgui.Dialogs;
 import fi.jyu.mit.fxgui.ModalController;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 
 
 /**
@@ -17,11 +21,23 @@ import javafx.fxml.Initializable;
  */
 public class LintuBingoGUIController implements Initializable {
     
+    @FXML private TextField hakuehto;
+    @FXML private ComboBoxChooser<String> cbKentat;
+    @FXML private Label labelVirhe;
 
     
     @Override
     public void initialize(URL url, ResourceBundle bundle) {
         //      
+    }
+    
+    @FXML private void handleHakuehto() {
+        String hakukentta = cbKentat.getSelectedText();
+        String ehto = hakuehto.getText(); 
+        if ( ehto.isEmpty() )
+            naytaVirhe(null);
+        else
+            naytaVirhe("Ei osata vielä hakea " + hakukentta + ": " + ehto);
     }
 
     
@@ -70,6 +86,17 @@ public class LintuBingoGUIController implements Initializable {
     private void tallenna() {
         Dialogs.showMessageDialog("Tallennetaan! Mutta ei toimi vielä");
     }
+    
+    private void naytaVirhe(String virhe) {
+        if ( virhe == null || virhe.isEmpty() ) {
+            labelVirhe.setText("");
+            labelVirhe.getStyleClass().removeAll("virhe");
+            return;
+        }
+        labelVirhe.setText(virhe);
+        labelVirhe.getStyleClass().add("virhe");
+    }
+
 
     
 }
