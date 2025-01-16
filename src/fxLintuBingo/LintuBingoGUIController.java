@@ -83,10 +83,18 @@ public class LintuBingoGUIController implements Initializable {
     // Tästä eteenpäin ei käyttöliittymään suoraan liittyvää koodia    
 
     
+    
+    /*
+     * kommentteja
+     */
     private void tallenna() {
         Dialogs.showMessageDialog("Tallennetaan! Mutta ei toimi vielä");
     }
     
+    
+    /*
+     * Kommennetteja
+     */
     private void naytaVirhe(String virhe) {
         if ( virhe == null || virhe.isEmpty() ) {
             labelVirhe.setText("");
