@@ -1,0 +1,6 @@
+Lintubingo - Bongauskalenteri
+; Kenttien järjestys tiedostossa on seuraava:
+;Bongaus-id|Laji-id  |bongattu   |paikka       |kellonaika|
+|	  1|1        |12.5.2021  |Lempäälä     |21:34     |
+|	  2|2        |15.7.2004  |Jyväskylä    |06:30     |
+|	  3|3        |1.10.2024  |Heinola      |15:50     |
