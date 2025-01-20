@@ -62,20 +62,20 @@ public class Bongaus {
      * 
      */
     public static void main(String[]args) {
-        Bongaus toyhtohyyppa = new Bongaus();
-        Bongaus sinitiainen = new Bongaus();
+        Bongaus lintu1 = new Bongaus();
+        Bongaus lintu2 = new Bongaus();
         
-       //toyhtohyyppa.rekisteroi();
-       // sinitiainen.rekisteroi();
-        toyhtohyyppa.tulosta(System.out);
-       // toyhtohyyppa.taytaLinnunTiedot();// täyttää linnun tiedot valmiiksi 
-        toyhtohyyppa.tulosta(System.out);
+       //lintu1.rekisteroi();
+       //lintu2.rekisteroi();
+        lintu1.tulosta(System.out);
+       //lintu1.taytaLinnunTiedot();// täyttää linnun tiedot valmiiksi 
+        lintu1.tulosta(System.out);
         
-        //sinitiainen.taytaLinnunTiedot();
-        sinitiainen.tulosta(System.out);
+        //lintu2.taytaLinnunTiedot();
+        lintu2.tulosta(System.out);
         
-        //sinitiainen.taytaLinnunTiedot();
-        sinitiainen.tulosta(System.out); 
+        //lintu2.taytaLinnunTiedot();
+        lintu2.tulosta(System.out); 
 
     }
 
