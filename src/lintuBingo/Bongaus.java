@@ -4,13 +4,15 @@ import java.io.OutputStream;
 import java.io.PrintStream;
 
 /**
- * 
+ * Luokka bongaukselle, tallentaa tiedon bongauksesta ja 
+ * rekisteröi uuden linnun jos sitä ei ole jo linturekisterissä.
  * @author reettavirtanen
  * @version 20 Jan 2025
  *
  */
 public class Bongaus {
     private int        bongausId;
+    private int        lajiId;
     private String     lintu       = "";
     private String     bongattu    = "";
     private String     paikka      = "";
@@ -19,6 +21,36 @@ public class Bongaus {
 
     private static int seuraavaNro = 1;
 
+    
+    /**
+     * Alustetaan bongaus. 
+     */
+    public Bongaus() {
+        //
+    }
+    
+    
+    /**
+     * Alustetaan tietystä linnusta tehty bongaus
+     * @param lajiId lintulajin tunnistenumero
+     */
+    public Bongaus(int lajiId) {
+        this.lajiId = lajiId;
+    }
+    
+    /**
+     * apumetodilla täytetään testiarvot bongaukselle
+     * @param id viite lintuun joka on bongattu
+     */
+    public void bongaus(int id) {
+        lajiId = id;
+        lintu = "Sinitiainen";
+        bongattu = "18.5.2023";
+        paikka = "Heinola";
+        kellonaika = "12:40";
+        huomioita = "teki pesää";
+    }
+    
     
     /**
      * Etsii ja palauttaa linnun nimen
@@ -40,9 +72,12 @@ public class Bongaus {
      * @param out tietovirta johon tulostetaan
      */
     public void tulosta(PrintStream out) {
-        out.println(String.format("%03d", bongausId, 1) + "  " + lintu + "  "+ bongattu);
-        out.println("  " + paikka + "  " + kellonaika);
-        out.println("  " + huomioita);
+        out.println(String.format("%03d" + bongausId, 1));
+        out.println("Nimi:  " + lintu);
+        out.println("Bongattu: " + bongattu);
+        out.println("Paikka: " + paikka);
+        out.println("Kellonaika: " + kellonaika);
+        out.println("Huomioita: " + huomioita);
     }
 
 
@@ -53,30 +88,45 @@ public class Bongaus {
     public void tulosta(OutputStream os) {
         tulosta(new PrintStream(os));
     }
-
+    
+    
+    /**
+     * antaa bongaukselle seuraavan tunnistenumeron.
+     * @return palauttaa uuden tunnistenumeron bongaukselle.
+     */
+    public int rekisteroi() {
+        bongausId = seuraavaNro;
+        seuraavaNro++;
+        return bongausId;
+    }
 
     
     /**
-     * Testiohjelma bongauksille
+     * palautetaan bongauksen oma id
+     * @return bongauksen id
+     */
+    public int getBongausId() {
+        return bongausId;
+    }
+    
+    
+    /**
+     * Kerrotaan mille linnulle bongaustieto kuuluu
+     * @return palauttaa lajikohtaisen tunnistenumeron, laji-id
+     */
+    public int getLajiid() {
+        return lajiId;
+    }
+    
+    
+    /**
+     * testiohjelma bongauksille
      * @param args ei käytössä
-     * 
      */
     public static void main(String[]args) {
-        Bongaus lintu1 = new Bongaus();
-        Bongaus lintu2 = new Bongaus();
-        
-       //lintu1.rekisteroi();
-       //lintu2.rekisteroi();
-        lintu1.tulosta(System.out);
-       //lintu1.taytaLinnunTiedot();// täyttää linnun tiedot valmiiksi 
-        lintu1.tulosta(System.out);
-        
-        //lintu2.taytaLinnunTiedot();
-        lintu2.tulosta(System.out);
-        
-        //lintu2.taytaLinnunTiedot();
-        lintu2.tulosta(System.out); 
-
+        Bongaus bong = new Bongaus();
+        bong.bongaus(2);
+        bong.tulosta(System.out);
     }
 
 }

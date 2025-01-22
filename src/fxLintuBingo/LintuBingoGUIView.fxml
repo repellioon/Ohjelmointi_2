@@ -69,8 +69,7 @@
                            <padding>
                               <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
                            </padding></Label>
-                        <ComboBoxChooser fx:id="cbKentat" maxWidth="200.0" onAction="#handleHakuehto" 
-                        rivit="kaikki&#10;bongattu&#10;kellonaika&#10;paikka&#10;ravinto&#10;levinneisyys&#10;pesimisaika&#10;elinympäristö&#10;linnut&#10;" />
+                        <ComboBoxChooser fx:id="cbKentat" maxWidth="200.0" onAction="#handleHakuehto" rivit="kaikki&#10;bongattu&#10;kellonaika&#10;paikka&#10;ravinto&#10;levinneisyys&#10;pesimisaika&#10;elinympäristö&#10;linnut&#10;" />
                         <TextField fx:id="hakuehto" onKeyReleased="#handleHakuehto" />
                         <Label text="Linnut">
                            <padding>
@@ -113,20 +112,23 @@
                       <ColumnConstraints hgrow="ALWAYS" maxWidth="155.5" minWidth="10.0" prefWidth="148.5" />
                     </columnConstraints>
                     <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <Label text="Ravinto" />
-                        <Label text="Pesimisaika" GridPane.rowIndex="1" />
-                        <Label text="Elinympäristö" GridPane.rowIndex="2" />
-                        <Label text="Levinneisyys" GridPane.rowIndex="3" />
-                        <TextArea editable="false" prefHeight="200.0" prefWidth="200.0" text="Hyönteiset, madot ja muut pienet selkärangattomat" wrapText="true" GridPane.columnIndex="1" />
-                        <TextArea editable="false" prefHeight="200.0" prefWidth="200.0" text="Huhtikuu" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                        <TextArea prefHeight="200.0" prefWidth="180.0" text="Avoimilla niityillä ja pelloilla, kosteat alueet" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                        <TextArea editable="false" text="Koko Suomi" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <Label prefWidth="25.0" text="Nimi" />
+                        <Label text="Ravinto" GridPane.rowIndex="1" />
+                        <Label text="Pesimisaika" GridPane.rowIndex="2" />
+                        <Label text="Elinympäristö" GridPane.rowIndex="3" />
+                        <Label text="Levinneisyys" GridPane.rowIndex="4" />
+                        <TextArea editable="false" prefHeight="200.0" prefWidth="200.0" text="Hyönteiset, madot ja muut pienet selkärangattomat" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <TextArea editable="false" prefHeight="200.0" prefWidth="200.0" text="Huhtikuu" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <TextArea prefHeight="200.0" prefWidth="180.0" text="Avoimilla niityillä ja pelloilla, kosteat alueet" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <TextArea editable="false" text="Koko Suomi" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                        <TextArea editable="false" prefHeight="200.0" prefWidth="200.0" text="Töyhtöhyyppä" wrapText="true" GridPane.columnIndex="1" />
                      </children>
                      <padding>
                         <Insets left="10.0" />
