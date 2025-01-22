@@ -23,6 +23,14 @@ public class Lintu {
     public Lintu() {
         
     }
+    
+    /**
+     * Kerrotaan mille linnulle bongaustieto kuuluu
+     * @return palauttaa lajikohtaisen tunnistenumeron, laji-id
+     */
+    public int getLajiid() {
+        return lajiId;
+    }
    
 
 }
