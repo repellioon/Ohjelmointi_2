@@ -1,6 +1,6 @@
 package lintuBingo;
 
-
+import java.io.File;
 
 /**
  * Luokka hallinnoimaan linturekisteriä, 

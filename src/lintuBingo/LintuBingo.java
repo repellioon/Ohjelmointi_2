@@ -85,10 +85,11 @@ public class LintuBingo {
         bongaustiedot.tallenna();
     }
     
+    
     /**
      * @param args ei käytössä
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) {        
         LintuBingo  lintubingo = new LintuBingo();
         
         
