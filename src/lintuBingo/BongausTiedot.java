@@ -44,7 +44,7 @@ public class BongausTiedot implements Iterable<Bongaus> {
      * @throws SailoException jos lukeminen epäonnistuu
      */
     public void lueTiedostosta(String hakemisto) throws SailoException {
-        tiedostonNimi = hakemisto + ".bong";
+        tiedostonNimi = hakemisto + "/bongaustiedot";
         throw new SailoException("Ei osata vielä lukea tiedostoa " + tiedostonNimi);
     }
     
@@ -91,6 +91,7 @@ public class BongausTiedot implements Iterable<Bongaus> {
     
     
     /**
+     * Testiohjelma Bongaustiedoille
      * @param args ei käytössä
      */
     public static void main (String[] args) {

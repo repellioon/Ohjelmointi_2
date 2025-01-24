@@ -97,9 +97,9 @@ public class LintuBingo {
 
             Lintu lintu1 = new Lintu(), lintu2 = new Lintu();
             lintu1.rekisteroi();
-            lintu1.vastaaAkuAnkka();
+            lintu1.linnunTiedot(1);
             lintu2.rekisteroi();
-            lintu2.vastaaAkuAnkka();
+            lintu2.linnunTiedot(1);
 
             lintubingo.lisaa(lintu1);
             lintubingo.lisaa(lintu2);
@@ -113,7 +113,7 @@ public class LintuBingo {
 
             System.out.println("============= testi =================");
             for (int i = 0; i < lintubingo.getLintuja(); i++) {
-                Lintu lintu = lintubingo.annaJasen(i);
+                Lintu lintu = lintubingo.haeLintu(i);
                 System.out.println("Lintu paikassa: " + i);
                 lintu.tulosta(System.out);
                 List<Bongaus> loytyneet = lintubingo.haeBongaustiedot(lintu);

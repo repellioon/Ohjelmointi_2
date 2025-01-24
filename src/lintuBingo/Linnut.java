@@ -67,8 +67,9 @@ public class Linnut {
     
     /**
      * 
-     * @param i
-     * @return
+     * @param i b
+     * @return jjj
+     * 
      */
     public Lintu hae(int i) {
         // TODO Auto-generated method stub
