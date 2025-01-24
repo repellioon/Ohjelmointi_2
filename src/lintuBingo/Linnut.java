@@ -65,6 +65,16 @@ public class Linnut {
         throw new SailoException("Ei osaa vielä tallentaa tiedostoa " + tiedostonNimi);
     }
     
+    /**
+     * 
+     * @param i
+     * @return
+     */
+    public Lintu hae(int i) {
+        // TODO Auto-generated method stub
+        return null;
+    }
+    
     
     /**
      * Testiohjelma Linnuille????
@@ -89,4 +99,5 @@ public class Linnut {
         lintu2.tulosta(System.out); 
 
     }
+
 }
