@@ -79,6 +79,7 @@ public class Bongaus {
         out.println("Paikka:        " + paikka);
         out.println("Kellonaika:    " + kellonaika);
         out.println("Huomioita:     " + huomioita + "\n");
+
     }
 
 
@@ -89,6 +90,7 @@ public class Bongaus {
     public void tulosta(OutputStream os) {
         tulosta(new PrintStream(os));
     }
+
     
     
     /**
