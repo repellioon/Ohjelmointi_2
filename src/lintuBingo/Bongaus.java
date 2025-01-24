@@ -38,6 +38,7 @@ public class Bongaus {
         this.lajiId = lajiId;
     }
     
+    
     /**
      * apumetodilla täytetään testiarvot bongaukselle
      * @param id viite lintuun joka on bongattu
@@ -72,12 +73,12 @@ public class Bongaus {
      * @param out tietovirta johon tulostetaan
      */
     public void tulosta(PrintStream out) {
-        out.println(String.format("%03d" + bongausId, 1));
-        out.println("Nimi:  " + lintu);
-        out.println("Bongattu: " + bongattu);
-        out.println("Paikka: " + paikka);
-        out.println("Kellonaika: " + kellonaika);
-        out.println("Huomioita: " + huomioita);
+        out.println(String.format("%03d" + bongausId, 0));
+        out.println("Laji:          " + lintu);
+        out.println("Bongattu:      " + bongattu);
+        out.println("Paikka:        " + paikka);
+        out.println("Kellonaika:    " + kellonaika);
+        out.println("Huomioita:     " + huomioita + "\n");
     }
 
 
@@ -125,8 +126,16 @@ public class Bongaus {
      */
     public static void main(String[]args) {
         Bongaus bong = new Bongaus();
+        Bongaus bong2 = new Bongaus();
+        
         bong.bongaus(2);
+        bong.rekisteroi();
         bong.tulosta(System.out);
+        
+        bong2.bongaus(2);
+        bong2.rekisteroi();
+        bong2.tulosta(System.out);
+                
     }
 
 }
