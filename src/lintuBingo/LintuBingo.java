@@ -25,13 +25,13 @@ public class LintuBingo {
     
     
     /**
-     * Palauttaa i:n jäsenen
-     * @param i monesko jäsen palautetaan
-     * @return viite i:teen jäseneen
+     * Palauttaa i:n linnun
+     * @param i monesko lintu palautetaan
+     * @return viite i:teen lintuun
      * @throws IndexOutOfBoundsException jos i väärin
      */
     public Lintu haeLintu(int i) throws IndexOutOfBoundsException {
-        return linnut.hae(i);
+        return linnut.anna(i);
     }
 
     
@@ -98,9 +98,9 @@ public class LintuBingo {
 
             Lintu lintu1 = new Lintu(), lintu2 = new Lintu();
             lintu1.rekisteroi();
-            lintu1.linnunTiedot(1);
+            lintu1.linnunTiedot();
             lintu2.rekisteroi();
-            lintu2.linnunTiedot(1);
+            lintu2.linnunTiedot();
 
             lintubingo.lisaa(lintu1);
             lintubingo.lisaa(lintu2);

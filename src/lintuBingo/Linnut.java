@@ -34,6 +34,20 @@ public class Linnut {
         rekisteri[lkm++] = lintu;
     }
     
+    
+    /**
+     * Palauttaa viitteen i:teen lintuun.
+     * @param i monennenko linnun viite halutaan
+     * @return viite lintuun, jonka indeksi on i
+     * @throws IndexOutOfBoundsException jos i ei ole sallitulla alueella  
+     */
+    public Lintu anna(int i) throws IndexOutOfBoundsException {
+        if (i < 0 || lkm <= i)
+            throw new IndexOutOfBoundsException("Laiton indeksi: " + i);
+        return rekisteri[i];
+    }
+
+    
     /**
      * Palauttaa lintujen lukumäärän
      * @return lintujen lukumäärä
@@ -63,16 +77,6 @@ public class Linnut {
         throw new SailoException("Ei osaa vielä tallentaa tiedostoa " + tiedostonNimi);
     }
     
-    /**
-     * 
-     * @param i b
-     * @return jjj
-     * 
-     */
-    public Lintu hae(int i) {
-        // TODO Auto-generated method stub
-        return null;
-    }
     
     
     /**

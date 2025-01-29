@@ -27,7 +27,7 @@ public class LintuBingoMain extends Application {
             primaryStage.setTitle("LintuBingo");
             
             primaryStage.setOnCloseRequest((event) -> {
-                if ( !lintubingoCtrl.voikoSulkea() ) event.consume();
+                //if ( !lintubingoCtrl.voikoSulkea() ) event.consume();
             });
 
             
@@ -35,7 +35,7 @@ public class LintuBingoMain extends Application {
             lintubingoCtrl.setLintuBingo(lintubingo);
             
             primaryStage.show();
-            if ( !lintubingoCtrl.avaa() ) Platform.exit();
+            //if ( !lintubingoCtrl.avaa() ) Platform.exit();
         } catch(Exception e) {
             e.printStackTrace();
             

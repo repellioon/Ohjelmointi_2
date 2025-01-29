@@ -37,12 +37,23 @@ public class Lintu {
     
     
     /**
-     * apumetodilla täytetään linnun tiedot
-     * @param id linnun lajikohtain tunnistusnumero
+     * Arvotaan satunnainen kokonaisluku välille [ala,yla]
+     * @param ala arvonnan alaraja
+     * @param yla arvonnan yläraja
+     * @return satunnainen luku väliltä [ala,yla]
      */
-    public void linnunTiedot(int id) {
-        lajiId = id; // pitää miettiä pitääkö tässä olla vielä bongaus id, jos lintujen tiedoissa näkyy kaikki tehdyt bongaukset?
-        lintu = "Sinitiainen";
+    public static int rand(int ala, int yla) {
+      double n = (yla-ala)*Math.random() + ala;
+      return (int)Math.round(n);
+    }
+
+    
+    /**
+     * apumetodilla täytetään linnun tiedot
+     */
+    public void linnunTiedot() {
+        lajiId = 1; // pitää miettiä pitääkö tässä olla vielä bongaus id, jos lintujen tiedoissa näkyy kaikki tehdyt bongaukset?
+        lintu = "Sinitiainen " + rand(1, 100);
         ravinto = "18.5.2023";
         pesimisaika = "Heinola";
         elinymparisto = "12:40";
@@ -96,6 +107,7 @@ public class Lintu {
     public int getLajiid() { 
         return lajiId;
     }
+    
 
     
     /**
@@ -117,7 +129,7 @@ public class Lintu {
         
         lintu1.rekisteroi();
         lintu1.tulosta(System.out);
-        lintu1.linnunTiedot(1);
+        lintu1.linnunTiedot();
         
         lintu2.rekisteroi();
         lintu2.tulosta(System.out);

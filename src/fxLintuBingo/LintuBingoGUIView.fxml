@@ -61,7 +61,7 @@
          <items>
             <BorderPane maxWidth="160.0" minWidth="100.0" prefHeight="200.0" prefWidth="138.0">
                <center>
-                  <ListChooser accessibleRole="BUTTON" prefWidth="160.0" rivit="Töyhtöhyyppä&#10;Sinitiainen&#10;Mustarastas&#10;Merikotka" BorderPane.alignment="CENTER" />
+                  <ListChooser fx:id="chooserLinnut" accessibleRole="BUTTON" prefWidth="160.0" rivit="Töyhtöhyyppä&#10;Sinitiainen&#10;Mustarastas&#10;Merikotka" BorderPane.alignment="CENTER" />
                </center>
                <top>
                   <VBox BorderPane.alignment="CENTER">
