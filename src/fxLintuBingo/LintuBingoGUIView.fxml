@@ -89,9 +89,9 @@
                      </padding></Label>
                </top>
                <center>
-                  <ScrollPane fitToWidth="true" prefWidth="150.0" BorderPane.alignment="CENTER">
+                  <ScrollPane fx:id="panelBongaustiedot" fitToWidth="true" prefWidth="150.0" BorderPane.alignment="CENTER">
                      <content>
-                        <StringGrid rivit="Bongattu   |Paikka       |Kellonaika|&#10;12.5.2021  |Lempäälä     |21:34     |&#10;15.7.2004  |Jyväskylä    |06:30     |&#10;1.10.2024  |Heinola      |15:50     |" />
+                      
                      </content>
                   </ScrollPane>
                </center>

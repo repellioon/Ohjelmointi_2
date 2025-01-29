@@ -51,10 +51,23 @@ public class TulostusController implements ModalControllerInterface<String> {
     /**
      * Näyttää tulostusalueessa tekstin
      * @param tulostus tulostettava teskti
+     * @return kontrolleri jolta voidaan pyytää lisää tietoja
      */
-    public static void tulosta(String tulostus) {
-        ModalController.showModeless(TulostusController.class.getResource("TulostusView.fxml"),
-                "Tulostus", tulostus);
+    public static TulostusController tulosta(String tulostus) {
+        TulostusController tulostusCtrl = 
+          ModalController.showModeless(TulostusController.class.getResource("TulostusView.fxml"),
+                                       "Tulostus", tulostus);
+        return tulostusCtrl;
+
     }
+    
+    
+    /**
+     * @return alue johon tulostetaan
+     */
+    public TextArea getTextArea() {
+        return tulostusAlue;
+    }
+
 
 }

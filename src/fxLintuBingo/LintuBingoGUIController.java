@@ -2,6 +2,7 @@ package fxLintuBingo;
 
 import java.awt.Desktop;
 import java.io.IOException;
+import java.io.PrintStream;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
@@ -11,10 +12,13 @@ import fi.jyu.mit.fxgui.ComboBoxChooser;
 import fi.jyu.mit.fxgui.Dialogs;
 import fi.jyu.mit.fxgui.ListChooser;
 import fi.jyu.mit.fxgui.ModalController;
+import fi.jyu.mit.fxgui.TextAreaOutputStream;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
 import lintuBingo.Bongaus;
@@ -35,12 +39,15 @@ public class LintuBingoGUIController implements Initializable {
     @FXML private ComboBoxChooser<String> cbKentat;
     @FXML private Label labelVirhe;
     @FXML private ListChooser<Lintu> chooserLinnut;
+    @FXML private ScrollPane panelBongaustiedot;
 
     
     @Override
     public void initialize(URL url, ResourceBundle bundle) {
         alusta();      
     }
+   
+    
     
     @FXML private void handleHakuehto() {
         String hakukentta = cbKentat.getSelectedText();
@@ -95,10 +102,22 @@ public class LintuBingoGUIController implements Initializable {
 // Tästä eteenpäin ei käyttöliittymään suoraan liittyvää koodia    
 
     private LintuBingo lintubingo;
+    private TextArea areaBongaustiedot = new TextArea();
+
+    //TODO: poista lopuksi
     
-    
-    private void alusta() {
-        //chooserLinnut.clear(); // tyhjentää linnut lstauksen, onko tarpeellinen tässä ohjelmassa?
+    /**
+     * Tekee tarvittavat muut alustukset, nyt vaihdetaan GridPanen tilalle
+     * yksi iso tekstikenttä, johon voidaan tulostaa jäsenten tiedot.
+     * Alustetaan myös  kuuntelija 
+     */
+    protected void alusta() {
+        panelBongaustiedot.setContent(areaBongaustiedot);
+        panelBongaustiedot.setFitToHeight(true);
+        
+        chooserLinnut.clear(); // tyhjentää linnut lstauksen, onko tarpeellinen tässä ohjelmassa?
+        chooserLinnut.addSelectionListener(e -> naytaLintu());
+        
     }
     
     
@@ -150,6 +169,21 @@ public class LintuBingoGUIController implements Initializable {
     
     
     /**
+     * Näyttää listasta valitun Linnun bongaustiedot, tilapäisesti yhteen isoon edit-kenttään
+     */
+    protected void naytaLintu() {
+        Lintu linnunKohdalla = chooserLinnut.getSelectedObject();
+
+        if (linnunKohdalla == null) return;
+
+        areaBongaustiedot.setText("");
+        try (PrintStream os = TextAreaOutputStream.getTextPrintStream(areaBongaustiedot)) {
+            linnunKohdalla.tulosta(os);
+        }
+    }
+
+    
+    /**
      * Hakee lintujen tiedot listaan
      * @param lajiId Linnun lajinumero, joka aktivoidaan haun jälkeen
      */
@@ -189,5 +223,35 @@ public class LintuBingoGUIController implements Initializable {
         
         
     }
+    
+    
+    
+    /**
+     * Tulostaa linnun tiedot tiedot
+     * @param os tietovirta johon tulostetaan
+     * @param lintu tulostettava jäsen
+     */
+    public void tulosta(PrintStream os, final Lintu lintu) {
+        os.println("----------------------------------------------");
+        lintu.tulosta(os);
+        os.println("----------------------------------------------");
+    }
+    
+    
+    /**
+     * Tulostaa listassa olevat jäsenet tekstialueeseen
+     * @param text alue johon tulostetaan
+     */
+    public void tulostaValitut(TextArea text) {
+        try (PrintStream os = TextAreaOutputStream.getTextPrintStream(text)) {
+            os.println("Tulostetaan kaikki jäsenet");
+            for (int i = 0; i < lintubingo.getLintuja(); i++) {
+                Lintu lintu = lintubingo.haeLintu(i);
+                tulosta(os, lintu);
+                os.println("\n\n");
+            }
+        }
+    }
+
 
 } 
