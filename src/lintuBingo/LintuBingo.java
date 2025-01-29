@@ -106,11 +106,11 @@ public class LintuBingo {
             lintubingo.lisaa(lintu2);
             int id1 = lintu1.getLajiid();
             int id2 = lintu2.getLajiid();
-            Bongaus pitsi11 = new Bongaus(id1); pitsi11.bongaus(id1); lintubingo.lisaa(pitsi11);
-            Bongaus pitsi12 = new Bongaus(id1); pitsi12.bongaus(id1); lintubingo.lisaa(pitsi12);
-            Bongaus pitsi21 = new Bongaus(id2); pitsi21.bongaus(id2); lintubingo.lisaa(pitsi21);
-            Bongaus pitsi22 = new Bongaus(id2); pitsi22.bongaus(id2); lintubingo.lisaa(pitsi22);
-            Bongaus pitsi23 = new Bongaus(id2); pitsi23.bongaus(id2); lintubingo.lisaa(pitsi23);
+            Bongaus bongaus1 = new Bongaus(id1); bongaus1.bongaus(id1); lintubingo.lisaa(bongaus1);
+            Bongaus bongaus2 = new Bongaus(id1); bongaus2.bongaus(id1); lintubingo.lisaa(bongaus2);
+            Bongaus bongaus3 = new Bongaus(id2); bongaus3.bongaus(id2); lintubingo.lisaa(bongaus3);
+            Bongaus bongaus4 = new Bongaus(id2); bongaus4.bongaus(id2); lintubingo.lisaa(bongaus4);
+            Bongaus bongaus5 = new Bongaus(id2); bongaus5.bongaus(id2); lintubingo.lisaa(bongaus5);
 
             System.out.println("============= testi =================");
             for (int i = 0; i < lintubingo.getLintuja(); i++) {

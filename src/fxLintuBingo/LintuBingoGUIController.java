@@ -1,5 +1,9 @@
 package fxLintuBingo;
 
+import java.awt.Desktop;
+import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -11,6 +15,11 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+
+import lintuBingo.Bongaus;
+import lintuBingo.Lintu;
+import lintuBingo.LintuBingo;
+import lintuBingo.SailoException;
 
 
 /**
@@ -82,6 +91,7 @@ public class LintuBingoGUIController implements Initializable {
     //=====================================
     // Tästä eteenpäin ei käyttöliittymään suoraan liittyvää koodia    
 
+    private LintuBingo lintubingo;
     
     
     /*
@@ -104,7 +114,30 @@ public class LintuBingoGUIController implements Initializable {
         labelVirhe.setText(virhe);
         labelVirhe.getStyleClass().add("virhe");
     }
-
-
     
-}
+    
+    /**
+     * Näytetään ohjelman suunnitelma erillisessä selaimessa.
+     */
+    private void avustus() {
+        Desktop desktop = Desktop.getDesktop();
+        try {
+            URI uri = new URI("https://tim.jyu.fi/view/kurssit/tie/ohj2/v/2024/syksy/ht/reevirta");
+            desktop.browse(uri);
+        } catch (URISyntaxException e) {
+            return;
+        } catch (IOException e) {
+            return;
+        }
+    }   
+    
+
+    /**
+     * @param lintubingo näytetään tässä käyttöliittymässä
+     */
+    public void setLintuBingo(LintuBingo lintubingo) {
+        this.lintubingo = lintubingo;
+        
+    }
+
+    } 

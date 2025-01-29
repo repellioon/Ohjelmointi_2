@@ -22,7 +22,8 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fxLintuBingo.LintuBingoGUIController">
+<BorderPane prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" 
+			fx:controller="fxLintuBingo.LintuBingoGUIController">
    <top>
       <MenuBar BorderPane.alignment="CENTER">
         <menus>
