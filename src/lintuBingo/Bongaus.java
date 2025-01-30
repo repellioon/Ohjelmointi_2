@@ -73,7 +73,7 @@ public class Bongaus {
      * @param out tietovirta johon tulostetaan
      */
     public void tulosta(PrintStream out) {
-        out.println(String.format("%03d" + bongausId, 0));
+        out.println(String.format("%03d" + bongausId, 2));
         out.println("Laji:          " + lintu);
         out.println("Bongattu:      " + bongattu);
         out.println("Paikka:        " + paikka);
@@ -130,7 +130,7 @@ public class Bongaus {
         Bongaus bong = new Bongaus();
         Bongaus bong2 = new Bongaus();
         
-        bong.bongaus(2);
+        bong.bongaus(1);
         bong.rekisteroi();
         bong.tulosta(System.out);
         

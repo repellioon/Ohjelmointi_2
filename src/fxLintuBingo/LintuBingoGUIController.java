@@ -47,8 +47,7 @@ public class LintuBingoGUIController implements Initializable {
         alusta();      
     }
    
-    
-    
+       
     @FXML private void handleHakuehto() {
         String hakukentta = cbKentat.getSelectedText();
         String ehto = hakuehto.getText(); 
@@ -59,10 +58,15 @@ public class LintuBingoGUIController implements Initializable {
     }
 
     
-    
     @FXML private void handleTallenna() {
         tallenna();
     }
+    
+    
+   // @FXML private void handleAvaa() {
+       // avaa();
+    
+
     
     @FXML private void handleLisaaBongaus() {
         //Dialogs.showMessageDialog("Vielä ei osata lisätä bongausta");
@@ -70,6 +74,7 @@ public class LintuBingoGUIController implements Initializable {
         
         lisaaBongaus();
     }
+ 
     
     @FXML private void handleLopeta() {
         tallenna();
@@ -77,6 +82,7 @@ public class LintuBingoGUIController implements Initializable {
         //kysyy ensin tallennetaanko
     }
 
+    
     @FXML private void handleMuokkaaBongausta() {
         ModalController.showModal(LintuBingoGUIController.class.getResource("BongausTiedotGUIView.fxml"),
                 "Bongaus", null, "");
@@ -84,20 +90,28 @@ public class LintuBingoGUIController implements Initializable {
 
     }
 
+    
     @FXML private void handleMuokkaaLajitietoja() {
         Dialogs.showMessageDialog("Vielä ei osata muokata lajitietoja");
-        //Kysyy ensin että valitse lintu ja avaa LintuBingo näkymän oikealle linnulle
+        //Kysyy ensin että valitse lintu ja avaa LintuBingo näkymän oikealle linnulle?
     }
 
+    
     @FXML private void handlePoista() {
         Dialogs.showMessageDialog("Vielä ei osata poistaa");
     }
 
+    
     @FXML private void handleTulosta() {
-        TulostusController.tulosta(null);
+        TulostusController tulostusCtrl = TulostusController.tulosta(null); 
+        tulostaValitut(tulostusCtrl.getTextArea()); 
     }
 
     
+    @FXML private void handleApua() { //näyttää ht suunnitelman timissä
+        avustus();
+    }
+
 //============================================================================================
 // Tästä eteenpäin ei käyttöliittymään suoraan liittyvää koodia    
 
@@ -141,7 +155,7 @@ public class LintuBingoGUIController implements Initializable {
         labelVirhe.setText(virhe);
         labelVirhe.getStyleClass().add("virhe");
     }
-    
+
     
     /**
      * Näytetään ohjelman suunnitelma erillisessä selaimessa.
@@ -224,12 +238,11 @@ public class LintuBingoGUIController implements Initializable {
         
     }
     
-    
-    
+       
     /**
      * Tulostaa linnun tiedot tiedot
      * @param os tietovirta johon tulostetaan
-     * @param lintu tulostettava jäsen
+     * @param lintu tulostettava lintu
      */
     public void tulosta(PrintStream os, final Lintu lintu) {
         os.println("----------------------------------------------");
@@ -239,12 +252,12 @@ public class LintuBingoGUIController implements Initializable {
     
     
     /**
-     * Tulostaa listassa olevat jäsenet tekstialueeseen
+     * Tulostaa listassa olevat linnut tekstialueeseen
      * @param text alue johon tulostetaan
      */
     public void tulostaValitut(TextArea text) {
         try (PrintStream os = TextAreaOutputStream.getTextPrintStream(text)) {
-            os.println("Tulostetaan kaikki jäsenet");
+            os.println("Tulostetaan kaikki linnut");
             for (int i = 0; i < lintubingo.getLintuja(); i++) {
                 Lintu lintu = lintubingo.haeLintu(i);
                 tulosta(os, lintu);
