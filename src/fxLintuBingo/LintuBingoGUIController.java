@@ -21,7 +21,7 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
-import lintuBingo.Bongaus;
+//import lintuBingo.Bongaus;
 import lintuBingo.Lintu;
 import lintuBingo.LintuBingo;
 import lintuBingo.SailoException;
